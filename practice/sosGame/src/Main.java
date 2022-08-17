@@ -17,6 +17,7 @@ public class Main {
         flag = rand.nextBoolean();
 
         Human human = new Human();
+        Computer comp = new Computer();
         Game game = new Game();
 
 
@@ -25,9 +26,17 @@ public class Main {
 
 
         do {
-            if (true){
-                game.makeMove(board ,human, scan);
+            System.out.println("Player's point: " + human.getPoints());
+            System.out.println("Player's point: " + comp.getPoints());
+            board.printBoard();
+            if (flag){
+                game.makeMove(board ,human);
+                flag = false;
+            }else {
+                game.makeMove(board, comp);
+                flag = true;
             }
+
         }while (true);
 
 

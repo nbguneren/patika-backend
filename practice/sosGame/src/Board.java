@@ -1,5 +1,12 @@
 public class Board {
     private String[][] board;
+    private int boardSize;
+    public int moves = 0, maxMove = boardSize*boardSize;
+
+
+    public int getBoardSize() {
+        return boardSize;
+    }
 
     public void printBoard(){
         for (String[] rows: board) {
@@ -11,11 +18,12 @@ public class Board {
         }
     }
 
-    public boolean alterBoard(int row, int col, String ch, Human human){
+    public boolean alterBoard(int row, int col, String ch, Player player){
         if (board[row-1][col-1].equals("-")){
             if (ch.toLowerCase().equals("s") || ch.toLowerCase().equals("o")){
                 board[row-1][col-1] = ch;
-
+                checkPoint(row, col, ch, player);
+                moves += 1;
                 return true;
             }else{
                 System.out.println("You can only insert 's' or 'o'.");
@@ -152,5 +160,6 @@ public class Board {
     public Board(String[][] board) {
         this.board = board;
         flushBoard();
+        boardSize = this.board.length;
     }
 }

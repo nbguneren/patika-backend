@@ -4,6 +4,8 @@ public class Human extends Player{
     private int row, col;
     private String ch;
 
+    Scanner scanner = new Scanner(System.in);
+
     public int getRow() {
         return row;
     }
@@ -45,7 +47,7 @@ public class Human extends Player{
         ch = input.substring(4);
     }
 
-    void getInput(Scanner scanner){
+    void getInput(int i){
         String input;
         System.out.print("Enter spot and your move(like '2 2 s'):");
         input = scanner.nextLine();
